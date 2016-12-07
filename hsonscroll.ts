@@ -24,18 +24,15 @@ export class Hsonscroll {
   constructor(private el: ElementRef, private renderer: Renderer) {
   }
   ngOnInit() {
-    if (this.animationType == "slideDown") {
-      this.elHeight = this.el.nativeElement.scrollHeight;
-
-      this.initialMarginTop = this.el.nativeElement.style.marginTop;
-    }
     if (this.animationType == "fabFade") {
       this.elHeight = this.el.nativeElement.scrollHeight;
       this.elWidth = this.el.nativeElement.scrollWidth;
-
     }
 
     if (this.animationType == "slideDown") {
+      this.elHeight = this.el.nativeElement.scrollHeight;
+      this.initialMarginTop = this.el.nativeElement.style.marginTop;
+      this.target.resize();
       if (!this.relative) {
         this.renderer.setElementStyle(this.el.nativeElement, 'marginTop', "-"+this.elHeight+"px");
       }
@@ -77,7 +74,6 @@ export class Hsonscroll {
             this.renderer.setElementStyle(this.el.nativeElement, 'marginTop', "-"+this.elHeight+"px");
           }
         } else {
-          this.target.resize();
           if (this.target.getScrollTop() >= positiveScroll) {
             this.renderer.setElementStyle(this.el.nativeElement, 'marginTop', "-"+this.elHeight+"px");
             positiveScroll = this.target.getScrollTop()+this.showin;
@@ -89,6 +85,7 @@ export class Hsonscroll {
               negativeScroll = Math.max(0,this.target.getScrollTop()-this.hidein);
             }
           }
+          this.target.resize();
         }
       }
       if (this.animationType == "fabFade" && this.relative) {
