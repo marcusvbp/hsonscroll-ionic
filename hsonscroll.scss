@@ -1,0 +1,17 @@
+[hs-onscroll] {
+  visibility: hidden;
+  //transition: all .5s ease;
+}
+[hs-onscroll="fabFade"] {
+  visibility: visible;
+  transition: all .5s ease;
+  width: 56px;
+  height: 56px;
+  > button[ion-fab] {
+    width: 100%;
+    height: 100%;
+  }
+}
+[hs-relative] {
+  transition: all .5s ease;
+}
