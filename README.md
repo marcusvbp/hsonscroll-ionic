@@ -1,7 +1,7 @@
 # hsonscroll-ionic
 **Hide or Show on Scroll** is a Directive for hide or show elements on screen scroll for Ionic (version 2) Framework App.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s8CbK_ltpps" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=s8CbK_ltpps&feature=youtu.be
 
 ## How to use
 
@@ -59,6 +59,8 @@
 (...)
 ```
 
+![Example 1](https://j.gifs.com/xG8PYz.gif)
+
 ### 2. Navbar and FAB Button show/hide if the scroll change to "current position + 56" or "current position - 56"
 ```
 <ion-header>
@@ -93,3 +95,4 @@
   <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
 </ion-fab>
 ```
+![Example 2](https://j.gifs.com/98Glq8.gif)
