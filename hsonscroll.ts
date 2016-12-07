@@ -10,6 +10,7 @@ export class Hsonscroll {
   elHeight: number;
   initialScrollTop: number;
   elWidth: number;
+  intervalCtrl: boolean = false;
 
   @Input('hs-onscroll') animationType: string;
 
@@ -42,6 +43,7 @@ export class Hsonscroll {
       }, 500);
     }
   }
+
   ngAfterContentInit() {
 
     if (!this.initialMarginTop) {
@@ -85,7 +87,19 @@ export class Hsonscroll {
               negativeScroll = Math.max(0,this.target.getScrollTop()-this.hidein);
             }
           }
-          this.target.resize();
+
+          if (this.intervalCtrl == false) {
+            let i = 0;
+            this.intervalCtrl = true;
+            let interval = setInterval(()=>{
+              this.target.resize();
+              i++;
+              if (i == 20) {
+                this.intervalCtrl = false;
+                clearInterval(interval);
+              }
+            }, 25);
+          }
         }
       }
       if (this.animationType == "fabFade" && this.relative) {
