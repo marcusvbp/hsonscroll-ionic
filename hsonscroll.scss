@@ -16,3 +16,7 @@
   visibility: visible;
   transition: all .5s ease;
 }
+[hs-onscroll="fade"] {
+  opacity: 0;
+  transition: opacity .1s ease;
+}
